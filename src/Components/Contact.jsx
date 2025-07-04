@@ -15,7 +15,7 @@ return (
 
       </div>
 
-             <div className="flex gap-8 my-10">
+             <div className="md:flex gap-8 my-10">
                 <div className="shadow-lg p-8 flex flex-col gap-4 md:w-[400px]">
                     <div className="flex flex-col">
                         <h2 className="font-semibold text-xl text-gray-800"><i class="ri-cellphone-line mr-1"></i> Call Us</h2>
@@ -36,7 +36,7 @@ return (
 
                 </div>
                 <div className="shadow-lg p-8 flex-1">
-                   <form className="grid md:grid-cols-2 gap-8">
+                   <form className="md:grid md:grid-cols-2 gap-8">
                       <div className="flex flex-col gap-2">
                         <label className="text-gray-600 font-semibold">Name*</label>
                         <input type="text" name="name"  className="p-2.5 border border-gray-200 focus:outline-none rounded" placeholder="Enter Your Name" required/>
