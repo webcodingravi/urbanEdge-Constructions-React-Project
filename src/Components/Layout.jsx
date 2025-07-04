@@ -31,7 +31,7 @@ const Layout = ({children}) => {
 
      {
         lable:"Contact Us",
-        href:""
+        href:"/contact-us"
     }
 ]
    return (
@@ -79,9 +79,9 @@ const Layout = ({children}) => {
     <footer className='bg-gray-800 pt-8 pb-4'>
       <div className='grid md:grid-cols-4 md:w-10/12 mx-auto gap-3 px-8'>
        <div className='text-gray-300'>
-        <div className='flex items-center justify-center gap-2 mb-3'>
+        <div className='flex items-center gap-2 mb-3'>
         <img src="/images/logo/logo.png" className='w-18 cursor-pointer'/>
-        <h1 className='font-bold text-xl uppercase'>UrbanEdge <span className='text-orange-500'>Constructions</span></h1>
+        <h1 className='font-bold text-xl uppercase'>UrbanEdge <span className='text-orange-500'><br/>Constructions</span></h1>
         </div>
         <p className='md:text-[18px] text-[16px]'>Our post-construction services gives you peace of mind showing that we are still have for you event after</p>
       </div>

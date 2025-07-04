@@ -135,9 +135,9 @@ const Home = () => {
             <h1 className="font-bold md:text-7xl text-4xl text-white">Crafting dreams with <br/>precision and excellence.</h1>
             <p className="text-medium text-white md:text-[18px] text-[16px] md:pt-6 pt-2">We excel at transforming visions into reality through outstanding craftsmanship and precise, We excel at transforming visions into reality through outstanding craftsmanship and precise</p>
             <div className="mt-6 flex flex-col gap-8 md:flex-row md:gap-6 mx-auto">
-                <button className="bg-orange-500 px-8 py-3 cursor-pointer text-white font-semibold hover:bg-orange-700">
+                <Link to="/contact-us" className="bg-orange-500 px-8 py-3 cursor-pointer text-white font-semibold hover:bg-orange-700">
                     <i className="ri-arrow-right-circle-line mr-2"></i>
-                    Contact Now</button>
+                    Contact Now</Link>
             <Link to="/projects" className="px-8 py-3 cursor-pointer text-white font-semibold border-1 border-white hover:bg-rose-500 hover:border-rose-600">
                 <i className="ri-building-line mr-2"></i>
                 View Projects</Link>
