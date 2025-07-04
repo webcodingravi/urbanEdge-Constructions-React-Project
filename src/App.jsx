@@ -7,12 +7,17 @@ import Projects from "./Components/Projects";
 import Blog from "./Components/Blog"
 import NotFound from "./NotFound";
 import Contact from "./Components/Contact";
+import Login from "./Components/Admin/auth/Login";
+  import { ToastContainer} from 'react-toastify';
+import Dashboard from "./Components/Admin/Dashboard";
+
 
 const App = () => {
  return (
   <>
   <BrowserRouter>
   <Routes>
+    
     <Route path="/" element={<Home/>} />
     <Route path="/about" element={<About/>} />
     <Route path="/services" element={<Services/>} />
@@ -20,8 +25,11 @@ const App = () => {
     <Route path="/blog" element={<Blog/>} />
     <Route path="/contact-us" element={<Contact/>} />
     <Route path="*" element={<NotFound/>}/>
+    <Route path="/admin/login" element={<Login/>} />
+    <Route path="/admin/dashboard" element={<Dashboard/>} />
   </Routes>
   </BrowserRouter>
+  <ToastContainer />
   
   </>
  )
