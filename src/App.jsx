@@ -10,14 +10,16 @@ import Contact from "./Components/Contact";
 import Login from "./Components/Admin/auth/Login";
   import { ToastContainer} from 'react-toastify';
 import Dashboard from "./Components/Admin/Dashboard";
+import RequireAuth from "./Components/common/RequreAuth";
+import { AuthProvider } from './Components/Admin/Context/Auth.jsx'
 
 
 const App = () => {
  return (
   <>
+   <AuthProvider>
   <BrowserRouter>
   <Routes>
-    
     <Route path="/" element={<Home/>} />
     <Route path="/about" element={<About/>} />
     <Route path="/services" element={<Services/>} />
@@ -25,11 +27,20 @@ const App = () => {
     <Route path="/blog" element={<Blog/>} />
     <Route path="/contact-us" element={<Contact/>} />
     <Route path="*" element={<NotFound/>}/>
-    <Route path="/admin/login" element={<Login/>} />
-    <Route path="/admin/dashboard" element={<Dashboard/>} />
+   
+    <Route path="/admin">
+     <Route path="login" element={<Login/>} />
+      <Route path="dashboard" element={
+        <RequireAuth>
+        <Dashboard/>
+      </RequireAuth>
+        } />
+
+    </Route>
   </Routes>
   </BrowserRouter>
   <ToastContainer />
+  </AuthProvider>
   
   </>
  )

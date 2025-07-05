@@ -1,13 +1,16 @@
-import { useState } from "react"
+import { useState,useContext } from "react"
 import { useForm} from "react-hook-form"
 import axios from "axios";
  import { toast } from 'react-toastify';
  import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/Auth";
 
 const Login = () => {
+const {login} = useContext(AuthContext);
 const navigate = useNavigate();
 const [loader,setLoader] = useState(null);
  const [passwordToggle, setPasswordToggle] = useState('password');
+  
     const {
     register,
     handleSubmit,
@@ -17,7 +20,7 @@ const [loader,setLoader] = useState(null);
      setLoader(true)
     try{
           const res = await axios.post("http://127.0.0.1:8000/api/authenticate",data,{
-            options: {'Content-Type': 'application/json'}
+            headers: {'Content-Type': 'application/json'}
         })
 
         if(res.data.status == false) {
@@ -28,6 +31,8 @@ const [loader,setLoader] = useState(null);
                 token:res.data.token
             }
             localStorage.setItem("userInfo",JSON.stringify(userInfo))
+            login(userInfo)
+        
              navigate("/admin/dashboard")
         }
      
