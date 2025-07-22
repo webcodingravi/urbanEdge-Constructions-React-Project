@@ -1,17 +1,14 @@
-import { useState, useContext } from "react"
 import { useForm } from "react-hook-form"
 import axios from "axios";
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Context/Auth";
 import { apiUrl } from "../../hooks/Http"
+import { useState } from "react";
 
-const Login = () => {
-    const { login } = useContext(AuthContext);
+const Register = () => {
     const navigate = useNavigate();
     const [loader, setLoader] = useState(null);
     const [passwordToggle, setPasswordToggle] = useState('password');
-
 
     const {
         register,
@@ -19,29 +16,25 @@ const Login = () => {
         formState: { errors },
     } = useForm()
 
+
     const onSubmit = async (data) => {
         setLoader(true)
         try {
-            const res = await axios.post(`${apiUrl}/authenticate`, data, {
+            const res = await axios.post(`${apiUrl}/user-register`, data, {
                 headers: { 'Content-Type': 'application/json' }
             })
 
-            if (res.data.status == false) {
-                toast.error(res.data.message)
+            console.log(res.data.data)
+            if (res.data.status == true) {
+                toast.success(res.data.message)
+                navigate("/admin/login");
 
             } else {
-                const userInfo = {
-                    id: res.data.id,
-                    token: res.data.token
-                }
-                localStorage.setItem("userInfo", JSON.stringify(userInfo))
+                toast.error(res.data.message)
 
-                login(userInfo);
-                navigate("/admin/dashboard");
 
 
             }
-
 
         } catch (err) {
             toast.error(err.response ? err.response.data.message : err.message)
@@ -58,8 +51,23 @@ const Login = () => {
                     <img src="/images/auth/login.jpg" className="" alt="" />
 
                     <div>
-                        <h1 className="font-bold md:text-5xl text-4xl">Login!</h1>
+                        <h1 className="font-bold md:text-5xl text-4xl">Register!</h1>
                         <form className="flex flex-col md:gap-8 gap-4 md:mt-9 mt-7" onSubmit={handleSubmit(onSubmit)}>
+
+                            <div className="flex flex-col gap-1">
+                                <label className="text-gray-600 font-medium">Name*</label>
+                                <input {
+                                    ...register('name', {
+                                        required: "This field is required",
+                                    })
+                                }
+                                    type="text" className={`border border-gray-200 p-2.5 focus:outline-none rounded ${errors.name && 'invalid:border border-pink-500'}`} placeholder="Enter Name" />
+                                {
+                                    errors.name && <p className="text-rose-600">{errors.name?.message}</p>
+                                }
+                            </div>
+
+
                             <div className="flex flex-col gap-1">
                                 <label className="text-gray-600 font-medium">Email*</label>
                                 <input {
@@ -116,7 +124,7 @@ const Login = () => {
                                         :
                                         <button className="bg-rose-500 px-5 py-3 w-fit text-white cursor-pointer hover:bg-orange-500">
                                             <i className="ri-login-circle-line mr-2"></i>
-                                            Login</button>
+                                            Register</button>
 
 
 
@@ -137,7 +145,6 @@ const Login = () => {
 
         </>
     )
-
 }
 
-export default Login;
+export default Register;

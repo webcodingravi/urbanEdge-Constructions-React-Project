@@ -15,7 +15,7 @@ const Layout = ({children}) => {
         href:"/about"
     },
     {
-        lable:"Service",
+        lable:"Services",
         href:"/services"
     },
 
