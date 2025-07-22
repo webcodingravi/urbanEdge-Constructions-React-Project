@@ -24,7 +24,7 @@ const Register = () => {
                 headers: { 'Content-Type': 'application/json' }
             })
 
-            console.log(res.data.data)
+            console.log(res.data)
             if (res.data.status == true) {
                 toast.success(res.data.message)
                 navigate("/admin/login");
@@ -58,7 +58,7 @@ const Register = () => {
                                 <label className="text-gray-600 font-medium">Name*</label>
                                 <input {
                                     ...register('name', {
-                                        required: "This field is required",
+                                        required: "The Name field is required",
                                     })
                                 }
                                     type="text" className={`border border-gray-200 p-2.5 focus:outline-none rounded ${errors.name && 'invalid:border border-pink-500'}`} placeholder="Enter Name" />
@@ -72,14 +72,14 @@ const Register = () => {
                                 <label className="text-gray-600 font-medium">Email*</label>
                                 <input {
                                     ...register('email', {
-                                        required: "This field is required",
+                                        required: "The email field is required",
                                         pattern: {
                                             value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}$/,
                                             message: 'Invalid email address',
                                         },
                                     })
                                 }
-                                    type="email" className={`border border-gray-200 p-2.5 focus:outline-none rounded ${errors.email && 'invalid:border border-pink-500'}`} placeholder="Enter email" />
+                                    type="email" name="email" className={`border border-gray-200 p-2.5 focus:outline-none rounded ${errors.email && 'invalid:border border-pink-500'}`} placeholder="Enter email" />
                                 {
                                     errors.email && <p className="text-rose-600">{errors.email?.message}</p>
                                 }
@@ -89,7 +89,7 @@ const Register = () => {
                                 <label className="text-gray-600 font-medium">Password*</label>
                                 <input {
                                     ...register('password', {
-                                        required: "This field is required"
+                                        required: "The Password field is required"
                                     })
                                 } type={passwordToggle} className={`border border-gray-200 p-2.5 focus:outline-none rounded ${errors.password && 'invalid:border border-pink-500'}`} placeholder="Enter password" />
                                 {
