@@ -61,7 +61,7 @@ const HomeBanner = ({ placeholder }) => {
 
             if (res.data.status == true) {
                 toast.success(res.data.message)
-                navigator("/admin/home-page/1")
+                navigator("/admin/home-banner/1")
 
 
             } else {
