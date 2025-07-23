@@ -37,21 +37,21 @@ const Home = () => {
 
     const [WhyChoose, setWhyChoose] = useState([
         {
-            title: "Cutting-Edge Solutions",
+            title: "Strong value proposition up front",
             image: "/images/icon-1.svg",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed non laboriosam unde debitis aspernatur modi fugit earum minus omnis dolor, expedita eum labore libero ullam quibusdam nobis aut officiis perspiciatis!"
+            description: "Delhi’s trusted commercial and residential builder—delivering safety‑first, tech‑enabled projects on time and on budget"
         },
 
         {
-            title: "Cutting-Edge Solutions",
+            title: "Who you serve and what you do best",
             image: "/images/icon-2.svg",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed non laboriosam unde debitis aspernatur modi fugit earum minus omnis dolor, expedita eum labore libero ullam quibusdam nobis aut officiis perspiciatis!"
+            description: "Specializing in custom homes, heritage restorations, and turnkey retail fit‑outs across the NCR region."
         },
 
         {
-            title: "Cutting-Edge Solutions",
+            title: "Clear next steps / CTA",
             image: "/images/icon-3.svg",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed non laboriosam unde debitis aspernatur modi fugit earum minus omnis dolor, expedita eum labore libero ullam quibusdam nobis aut officiis perspiciatis!"
+            description: "Schedule a free consultation,” “View our portfolio,” or “Get a project estimate in 24 hours"
         }
     ])
 
