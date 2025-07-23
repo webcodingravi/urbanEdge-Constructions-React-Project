@@ -28,6 +28,8 @@ import { default as TestimonialEdit } from "./Components/Admin/Testimonials/Edit
 import { default as MemberList } from "./Components/Admin/Members/List.jsx"
 import { default as MemberCreate } from "./Components/Admin/Members/Create.jsx"
 import { default as MemberEdit } from "./Components/Admin/Members/Edit.jsx"
+import { default as AboutEdit } from "./Components/Admin/About.jsx"
+import { default as HomeBanner } from "./Components/Admin/HomeBanner.jsx"
 import ServiceDetails from "./Components/ServiceDetails.jsx";
 import ProjectDetails from "./Components/ProjectDetails.jsx";
 import BlogDetails from "./Components/BlogDetails.jsx";
@@ -86,7 +88,10 @@ const App = () => {
               <Route path="member/create" element={<RequireAuth><MemberCreate /></RequireAuth>} />
               <Route path="member/edit/:id" element={<RequireAuth><MemberEdit /></RequireAuth>} />
 
-
+              {/* About route */}
+              <Route path="about/:id" element={<RequireAuth><AboutEdit /></RequireAuth>} />
+              {/* HomeBanner route */}
+              <Route path="home-banner/:id" element={<RequireAuth><HomeBanner /></RequireAuth>} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

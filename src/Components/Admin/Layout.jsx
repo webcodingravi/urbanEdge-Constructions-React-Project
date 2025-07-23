@@ -107,6 +107,20 @@ const Layout = ({ children }) => {
             label: "Member",
             icon: <i className="ri-user-community-line mr-2"></i>,
             href: "/admin/member/list"
+        },
+
+        {
+            label: "About Us",
+            icon: <i className="ri-safe-2-fill mr-2"></i>,
+            href: "/admin/about/1"
+
+        },
+
+        {
+            label: "Home Banner",
+            icon: <i className="ri-copper-coin-line mr-2"></i>,
+            href: "/admin/home-banner/1"
+
         }
 
 
