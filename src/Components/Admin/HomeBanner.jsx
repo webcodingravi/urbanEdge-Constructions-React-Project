@@ -3,7 +3,7 @@ import Layout from "./Layout";
 import { useMemo, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { apiUrl, fileUrl, token } from "../hooks/Http"
 import JoditEditor from 'jodit-react';
 
@@ -15,6 +15,7 @@ const HomeBanner = ({ placeholder }) => {
     const [loader, setLoader] = useState(null);
     const [content, setContent] = useState('');
     const [aboutUs, setAboutUs] = useState('');
+    const navigator = useNavigate()
 
 
     const config = useMemo(() => ({
@@ -60,7 +61,7 @@ const HomeBanner = ({ placeholder }) => {
 
             if (res.data.status == true) {
                 toast.success(res.data.message)
-                window.location.reload()
+                navigator("/admin/about/1")
 
 
             } else {
